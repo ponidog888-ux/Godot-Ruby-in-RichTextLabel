@@ -1,11 +1,18 @@
 # Godot-Ruby-in-RichTextLabel
 Godot 4.x RichTextLabel で擬似的均等配置ルビを実現する方法
 
-・漢字（ふりがな）　の形式でルビを付ける関数です。
+・なろう式に　漢字（ふりがな）　の形式でルビを付ける関数です。アドオンではありません。
+　他の書式にする場合は適当にいじってください。
 ・適宜richTextLabelのスクリプトに追加してtextを変換させてください。
 
 
 <img width="324" height="84" alt="sample-1" src="https://github.com/user-attachments/assets/53c10dcb-18b6-4620-a321-5f02915c87a5" />
+
+ふりがなの位置はRichTextLabelのインスペクタを調整してください。
+・Theme Overrides > Constants > Line Separation: 行間の高さを調整
+・Theme Overrides > Constants > Table V Separation: ルビと漢字の間の垂直方向の隙間を調整
+
+
 
 ＃グーグルAIと相談とトライ＆エラーを繰り返して作りました。
 bbcodeでの解決案は色々頑張りましたが、結局うまくいかなかったので
