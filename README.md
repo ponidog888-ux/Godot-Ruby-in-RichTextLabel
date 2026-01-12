@@ -28,29 +28,30 @@ func _ready()-> void:
 
 
 
-####変換  
-func auto_convert_to_ruby(input_text: String, label: RichTextLabel = null) -> String:
-	var ruby_size = 14
-	var current_size = 28
-	
-	if label:
-		# 現在のフォントサイズを取得し、ルビサイズ（半分のサイズ）を計算
-		#　サイズ調整したい場合は適当にいじって。
-		current_size = label.get_theme_font_size("normal_font_size")
-		ruby_size = int(current_size / 2.0)
+####変換
 
-	var regex = RegEx.new()
-	# 正規表現: 漢字1文字以上と、括弧内のふりがなを抽出
-	#ここで　漢字(ふりがな)の形式を確認してるので変更したい場合はここを変更。
-	#漢字以外を使いたい時とか別のタグを使いたいとか。
-	regex.compile("([\\x{4E00}-\\x{9FAF}]+)[（\\(]([^）\\)]+)[）\\)]")
+	func auto_convert_to_ruby(input_text: String, label: RichTextLabel = null) -> String:
+		var ruby_size = 14
+		var current_size = 28
 	
-	var results = regex.search_all(input_text)
-	var output_text = input_text
+		if label:
+			# 現在のフォントサイズを取得し、ルビサイズ（半分のサイズ）を計算
+			#　サイズ調整したい場合は適当にいじって。
+			current_size = label.get_theme_font_size("normal_font_size")
+			ruby_size = int(current_size / 2.0)
+
+		var regex = RegEx.new()
+		# 正規表現: 漢字1文字以上と、括弧内のふりがなを抽出
+		#ここで　漢字(ふりがな)の形式を確認してるので変更したい場合はここを変更。
+		#漢字以外を使いたい時とか別のタグを使いたいとか。
+		regex.compile("([\\x{4E00}-\\x{9FAF}]+)[（\\(]([^）\\)]+)[）\\)]")
+		
+		var results = regex.search_all(input_text)
+		var output_text = input_text
 	
-	# 後ろから置換することで、文字列インデックスのズレを防ぐ
-	results.reverse()
-	for res in results:
+		# 後ろから置換することで、文字列インデックスのズレを防ぐ
+		results.reverse()
+		for res in results:
 		var kanji = res.get_string(1) # 抽出した漢字
 		var yomi = res.get_string(2)  # 抽出したふりがな
 		
@@ -78,4 +79,4 @@ func auto_convert_to_ruby(input_text: String, label: RichTextLabel = null) -> St
 		output_text = output_text.erase(res.get_start(), res.get_end() - res.get_start())
 		output_text = output_text.insert(res.get_start(), replacement)
 
-	return output_text
+		return output_text
