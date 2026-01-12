@@ -8,6 +8,8 @@ Godot 4.x RichTextLabel で擬似的均等配置ルビを実現する方法
 
 <img width="324" height="84" alt="sample-1" src="https://github.com/user-attachments/assets/53c10dcb-18b6-4620-a321-5f02915c87a5" />
 
+![repository-open-graph-template](https://github.com/user-attachments/assets/a2c38690-fee3-48d7-a61f-c873654230ad)
+
 ふりがなの位置はRichTextLabelのインスペクタを調整してください。
 ・Theme Overrides > Constants > Line Separation: 行間の高さを調整
 ・Theme Overrides > Constants > Table V Separation: ルビと漢字の間の垂直方向の隙間を調整
