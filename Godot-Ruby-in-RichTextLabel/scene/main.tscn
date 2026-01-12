@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://ps804vcqs6li"]
+
+[ext_resource type="Script" uid="uid://badtwaq4s14bb" path="res://rich_text_label.gd" id="1_itxqv"]
+[ext_resource type="Texture2D" uid="uid://cm48tjhy3rymi" path="res://asset/witchlibra.png" id="2_v0l8b"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 43.0
+offset_top = 64.0
+offset_right = 802.0
+offset_bottom = 486.0
+theme_override_constants/line_separation = -15
+theme_override_constants/table_v_separation = -12
+theme_override_font_sizes/normal_font_size = 51
+bbcode_enabled = true
+text = "なろう形式で漢字（おとこもじ）が自動変換されます。タグ記述は不要ですので機械翻訳（ましーんゔぉいす）にも強めです。
+位置調整等はtheme_overrideのconstants/table_v_separationなどで調整します。"
+fit_content = true
+autowrap_trim_flags = 128
+script = ExtResource("1_itxqv")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 1026.0
+offset_top = 670.0
+offset_right = 1360.0
+offset_bottom = 1093.0
+theme_override_font_sizes/normal_font_size = 46
+bbcode_enabled = true
+text = "auto_convert_to_rubyを使ってtextを変換（こんばーと）させてください。"
+script = ExtResource("1_itxqv")
+
+[node name="Witchlibra" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(984.00006, 578)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_v0l8b")
